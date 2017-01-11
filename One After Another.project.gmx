@@ -14,16 +14,24 @@
     <sprites name="Player Sprites">
       <sprite>sprites\spr_basic_player</sprite>
     </sprites>
-    <sprite>sprites\spr_player_behind</sprite>
+    <sprites name="Stage 1">
+      <sprite>sprites\spr_wall_tile</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\obj_play_btn</object>
-    <object>objects\obj_exit_btn</object>
-    <object>objects\obj_cred_btn</object>
-    <object>objects\obj_draw_text</object>
-    <object>objects\obj_player</object>
+    <objects name="Menu Objects">
+      <object>objects\obj_play_btn</object>
+      <object>objects\obj_exit_btn</object>
+      <object>objects\obj_cred_btn</object>
+    </objects>
+    <objects name="Player Objects">
+      <object>objects\obj_player</object>
+    </objects>
+    <objects name="Stage 1 Objects">
+      <object>objects\obj_wall_tile</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Menu</room>

@@ -53,22 +53,48 @@ MOVERIGHT = keyboard_check(ord("D"));
 MOVEUP = keyboard_check(ord("W"));
 MOVEDOWN = keyboard_check(ord("S"));
 
-if (MOVELEFT) {
+if (MOVELEFT &amp;&amp; x &gt; 0) {
     x -= playerSpeed;
 }
 
-if (MOVERIGHT) {
+if (MOVERIGHT &amp;&amp; x &lt; room_width - sprite_width) {
     x += playerSpeed;
 }
 
-if (MOVEUP) {
+if (MOVEUP &amp;&amp; y &lt; room_height - sprite_height) {
     y -= playerSpeed;
 }
 
-if (MOVEDOWN) {
+if (MOVEDOWN &amp;&amp; y &gt; 0) {
     y += playerSpeed;
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_wall_tile">
+      <action>
+        <libid>1</libid>
+        <id>101</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_move</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>000010000</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
