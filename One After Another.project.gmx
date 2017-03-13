@@ -6,37 +6,46 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="Menusprites">
-      <sprite>sprites\spr_cred_btn</sprite>
-      <sprite>sprites\spr_exit_btn</sprite>
-      <sprite>sprites\spr_play_btn</sprite>
-    </sprites>
     <sprites name="Player Sprites">
-      <sprite>sprites\spr_basic_player</sprite>
+      <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_down</sprite>
+      <sprite>sprites\spr_player_left</sprite>
+      <sprite>sprites\spr_player_up</sprite>
     </sprites>
     <sprites name="Stage 1">
-      <sprite>sprites\spr_wall_tile</sprite>
+      <sprite>sprites\spr_wall</sprite>
+    </sprites>
+    <sprite>sprites\sprite12</sprite>
+    <sprite>sprites\spr_tile</sprite>
+    <sprites name="Weapon Sprites">
+      <sprite>sprites\spr_bullet_right</sprite>
+      <sprite>sprites\spr_bullet_up</sprite>
+      <sprite>sprites\spr_bullet_down</sprite>
+      <sprite>sprites\spr_bullet_left</sprite>
+    </sprites>
+    <sprites name="Enemy Sprites">
+      <sprite>sprites\spr_enemy</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <objects name="Menu Objects">
-      <object>objects\obj_play_btn</object>
-      <object>objects\obj_exit_btn</object>
-      <object>objects\obj_cred_btn</object>
+    <objects name="Weapon objects">
+      <object>objects\obj_bullet</object>
     </objects>
     <objects name="Player Objects">
       <object>objects\obj_player</object>
     </objects>
     <objects name="Stage 1 Objects">
-      <object>objects\obj_wall_tile</object>
+      <object>objects\obj_wall</object>
+      <object>objects\obj_tile</object>
+    </objects>
+    <objects name="Enemy Objects">
+      <object>objects\obj_enemy</object>
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Room_Menu</room>
-    <room>rooms\Room_Play</room>
-    <room>rooms\Room_Cred</room>
+    <room>rooms\rm_stage1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
