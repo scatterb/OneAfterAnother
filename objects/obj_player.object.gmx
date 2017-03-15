@@ -34,6 +34,12 @@ hp = 5;
 canbehit = true;
 canshoot = true;
 invframes = 0;
+player = obj_player;
+weapon = obj_wpn_pistol;
+wpn_cd = 0;
+hasshot = false;
+movesprite = 0;
+global.pellets = 1;
 </string>
           </argument>
         </arguments>
@@ -67,27 +73,35 @@ var right = keyboard_check(ord('D'));
 // Move up
 if(up){
     phy_position_y -= spd;
-    sprite_index = spr_player_up;
+    if (hasshot == false) {
+        sprite_index = spr_player_up;
+    }
     image_speed = .4;
 }
 // Move down
 if(down) {
     phy_position_y += spd;
-    sprite_index = spr_player_down;
+    if (hasshot == false) {
+        sprite_index = spr_player_down;
+    }
     image_speed = .4;
 }
 
 // Move left
 if(left) {
     phy_position_x -= spd;
-    sprite_index = spr_player_left;
+    if (hasshot == false) {
+        sprite_index = spr_player_left;
+    }
     image_speed = .4;
 }
 
 // Move right
 if(right) {
     phy_position_x += spd;
-    sprite_index = spr_player_right;
+    if (hasshot == false) {
+        sprite_index = spr_player_right;
+    }
     image_speed = .4;
 }
 
@@ -131,6 +145,87 @@ if(invframes &lt;= 0) {
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Weapon usage scripts
+
+// Shooting keys
+
+shootup = keyboard_check(ord('I'));
+shootdown = keyboard_check(ord('K'));
+shootleft = keyboard_check(ord('J'));
+shootright = keyboard_check(ord('L'));
+
+// When player shoots
+if(shootup or shootdown or shootleft or shootright) {
+    if(canshoot == true) {
+            for(i=0;i&lt;=global.pellets;i++) {
+                    with (instance_create(x, y, weapon)) {
+                        player = obj_player;
+                        speed = player.weapon.speed;
+        
+                        if(player.shootup) {
+                            direction = 0;
+                            player.sprite_index = spr_player_up;
+                        }
+                        if(player.shootright) {
+                            direction = 90;
+                            player.sprite_index = spr_player_right;
+                        }
+                        if(player.shootdown) {
+                            direction = 180;
+                            player.sprite_index = spr_player_down;
+                        }
+                        if(player.shootleft) {
+                            direction = 270;
+                            player.sprite_index = spr_player_left;
+                        }   
+                    }
+                }
+            
+        // Set cooldown on weapon so button can be held
+            canshoot = false;
+            wpn_cd = weapon.wpn_rof;
+        // Set cooldown on movement. if cd is on, model doesn't turn from movement
+            hasshot = true;
+            movesprite = 60;
+            
+    }
+}
+
+// Cooldown on weapon
+
+if (wpn_cd &lt;= 0) {
+    canshoot = true;
+} else {
+    wpn_cd -= 1;
+}
+
+// Model turn cooldown
+
+if (movesprite &lt;= 0) {
+    hasshot = false;
+} else {
+    movesprite -= 1;
+}
 </string>
           </argument>
         </arguments>
@@ -211,47 +306,6 @@ if(canbehit == true) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="69">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-    with (instance_create(x, y,obj_bullet))
-    {
-        speed = obj_bullet.speed;
-        if(obj_player.sprite_index == 0) {
-            direction = 90;
-        }
-        if(obj_player.sprite_index == 1) {
-            direction = 180;
-        }
-        if(obj_player.sprite_index == 2) {
-            direction = 270;
-        }
-        if(obj_player.sprite_index == 3) {
-            direction = 0;
-        }
-        
-    }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
@@ -265,9 +319,9 @@ if(canbehit == true) {
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>8,2</point>
-    <point>24,2</point>
-    <point>24,28</point>
-    <point>8,28</point>
+    <point>0,0</point>
+    <point>32,0</point>
+    <point>32,32</point>
+    <point>0,32</point>
   </PhysicsShapePoints>
 </object>
