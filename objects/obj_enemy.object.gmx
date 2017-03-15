@@ -52,11 +52,11 @@ weapon = player.weapon;
           <argument>
             <kind>1</kind>
             <string>if(place_meeting(x,y,obj_wpn_master)) {
-    hp -= obj_player.weapon.dmg;
-    
-    if(hp &lt;= 0) {
-        instance_destroy();
-    }
+        hp -= obj_player.weapon.dmg;
+        
+        if(hp &lt;= 0) {
+            instance_destroy();
+        }
 }
 </string>
           </argument>

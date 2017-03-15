@@ -108,10 +108,11 @@ if(direction == 270) {
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>16,8</point>
+    <point>18,6</point>
     <point>24,16</point>
     <point>24,24</point>
-    <point>8,24</point>
-    <point>8,16</point>
+    <point>10,24</point>
+    <point>10,16</point>
+    <point>128,48</point>
   </PhysicsShapePoints>
 </object>

@@ -177,7 +177,7 @@ shootright = keyboard_check(ord('L'));
 // When player shoots
 if(shootup or shootdown or shootleft or shootright) {
     if(canshoot == true) {
-            for(i=0;i&lt;=global.pellets;i++) {
+            for(i=1;i&lt;=global.pellets;i++) {
                     with (instance_create(x, y, weapon)) {
                         player = obj_player;
                         speed = player.weapon.speed;
@@ -225,6 +225,32 @@ if (movesprite &lt;= 0) {
     hasshot = false;
 } else {
     movesprite -= 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Win condition
+
+if(instance_number(obj_enemy) == 0) {
+    show_message("Voitit pelin");
+    game_end();
 }
 </string>
           </argument>
@@ -301,6 +327,29 @@ if(canbehit == true) {
           <argument>
             <kind>1</kind>
             <string>/// Collide
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_message(instance_number(obj_enemy));
 </string>
           </argument>
         </arguments>
