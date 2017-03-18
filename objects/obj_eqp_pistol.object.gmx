@@ -54,6 +54,11 @@ player = obj_player;
             <string>/// Give player the assigned weapon
 
 player.weapon = weapon;
+player.upsprite = spr_player_pistol_up;
+player.downsprite = spr_player_pistol_down;
+player.rightsprite = spr_player_pistol_right;
+player.leftsprite = spr_player_pistol_left;
+
 global.pellets = 1;
 </string>
           </argument>

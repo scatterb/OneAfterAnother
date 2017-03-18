@@ -11,10 +11,18 @@
       <sprite>sprites\spr_player_down</sprite>
       <sprite>sprites\spr_player_left</sprite>
       <sprite>sprites\spr_player_up</sprite>
+      <sprites name="Pistol sprites">
+        <sprite>sprites\spr_player_pistol_up</sprite>
+        <sprite>sprites\spr_player_pistol_down</sprite>
+        <sprite>sprites\spr_player_pistol_left</sprite>
+        <sprite>sprites\spr_player_pistol_right</sprite>
+      </sprites>
     </sprites>
     <sprites name="Stage 1">
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_floor</sprite>
+      <sprite>sprites\spr_downwall1</sprite>
+      <sprite>sprites\spr_downwall2</sprite>
     </sprites>
     <sprites name="Weapon Sprites">
       <sprites name="Bullet sprites">

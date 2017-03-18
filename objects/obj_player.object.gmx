@@ -40,6 +40,19 @@ wpn_cd = 0;
 hasshot = false;
 movesprite = 0;
 global.pellets = 1;
+image_xscale = 1.5;
+image_yscale = 1.5;
+
+var bar;
+bar = (hp/5) * 100;
+
+//Set sprites for player
+
+upsprite = spr_player_up;
+downsprite = spr_player_down;
+rightsprite = spr_player_right;
+leftsprite = spr_player_left;
+
 </string>
           </argument>
         </arguments>
@@ -70,11 +83,13 @@ var left = keyboard_check(ord('A'));
 var right = keyboard_check(ord('D'));
 
 
+
+
 // Move up
 if(up){
     phy_position_y -= spd;
     if (hasshot == false) {
-        sprite_index = spr_player_up;
+        sprite_index = player.upsprite;
     }
     image_speed = .4;
 }
@@ -82,7 +97,7 @@ if(up){
 if(down) {
     phy_position_y += spd;
     if (hasshot == false) {
-        sprite_index = spr_player_down;
+        sprite_index = player.downsprite;
     }
     image_speed = .4;
 }
@@ -91,7 +106,7 @@ if(down) {
 if(left) {
     phy_position_x -= spd;
     if (hasshot == false) {
-        sprite_index = spr_player_left;
+        sprite_index = player.leftsprite;
     }
     image_speed = .4;
 }
@@ -100,7 +115,7 @@ if(left) {
 if(right) {
     phy_position_x += spd;
     if (hasshot == false) {
-        sprite_index = spr_player_right;
+        sprite_index = player.rightsprite;
     }
     image_speed = .4;
 }
@@ -184,19 +199,19 @@ if(shootup or shootdown or shootleft or shootright) {
         
                         if(player.shootup) {
                             direction = 0;
-                            player.sprite_index = spr_player_up;
+                            player.sprite_index = player.upsprite;
                         }
                         if(player.shootright) {
                             direction = 90;
-                            player.sprite_index = spr_player_right;
+                            player.sprite_index = player.rightsprite;
                         }
                         if(player.shootdown) {
                             direction = 180;
-                            player.sprite_index = spr_player_down;
+                            player.sprite_index = player.downsprite;
                         }
                         if(player.shootleft) {
                             direction = 270;
-                            player.sprite_index = spr_player_left;
+                            player.sprite_index = player.leftsprite;
                         }   
                     }
                 }
@@ -279,6 +294,7 @@ if(canbehit == true) {
     if(place_meeting(x,y,obj_enemy)) {
         hp -= 1;
         
+        
         if(obj_player.sprite_index == 0) {
             phy_position_x -= 30;
         }
@@ -286,7 +302,7 @@ if(canbehit == true) {
             phy_position_y -= 30;
         }
         if(obj_player.sprite_index == 2) {
-            phy_position_y += 30;
+            phy_position_x += 30;
         }
         if(obj_player.sprite_index == 3) {
             phy_position_y += 30;
@@ -332,7 +348,7 @@ if(canbehit == true) {
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="32">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -349,7 +365,12 @@ if(canbehit == true) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_message(instance_number(obj_enemy));
+            <string>/// Draw healthbar and such and such
+
+var bar;
+bar = (hp/5) * 100;
+
+draw_healthbar(5, 5, 400, 25, bar, c_white, c_white, c_green, 0, true, true)
 </string>
           </argument>
         </arguments>
@@ -368,9 +389,9 @@ if(canbehit == true) {
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>32,0</point>
-    <point>32,32</point>
-    <point>0,32</point>
+    <point>12,4</point>
+    <point>20,4</point>
+    <point>20,30</point>
+    <point>12,30</point>
   </PhysicsShapePoints>
 </object>
