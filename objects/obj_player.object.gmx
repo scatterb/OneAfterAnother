@@ -35,11 +35,11 @@ canbehit = true;
 canshoot = true;
 invframes = 0;
 player = obj_player;
-weapon = obj_wpn_pistol;
+weapon = global.weapon;
 wpn_cd = 0;
 hasshot = false;
 movesprite = 0;
-global.pellets = 1;
+global.pellets = global.pellets;
 image_xscale = 1.5;
 image_yscale = 1.5;
 
@@ -193,7 +193,7 @@ shootright = keyboard_check(ord('L'));
 if(shootup or shootdown or shootleft or shootright) {
     if(canshoot == true) {
             for(i=1;i&lt;=global.pellets;i++) {
-                    with (instance_create(x, y, weapon)) {
+                    with (instance_create(x-15, y-15, weapon)) {
                         player = obj_player;
                         speed = player.weapon.speed;
         
@@ -203,6 +203,7 @@ if(shootup or shootdown or shootleft or shootright) {
                         }
                         if(player.shootright) {
                             direction = 90;
+                            phy_position_x += 25;
                             player.sprite_index = player.rightsprite;
                         }
                         if(player.shootdown) {
@@ -211,6 +212,7 @@ if(shootup or shootdown or shootleft or shootright) {
                         }
                         if(player.shootleft) {
                             direction = 270;
+                            phy_position_x -= 25;
                             player.sprite_index = player.leftsprite;
                         }   
                     }

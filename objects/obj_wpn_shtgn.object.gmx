@@ -27,9 +27,10 @@
             <kind>1</kind>
             <string>speed = 8;
 wpn_rof = 40;
-pellets = 6;
+pellets = 20;
 dmg = 0.3;
 pelletdirection = random_range(-0.75, 0.75);
+aftermath = "";
 </string>
           </argument>
         </arguments>

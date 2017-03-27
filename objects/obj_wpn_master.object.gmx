@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Give guns some default attributes
 
-
+aftermath = "";
 </string>
           </argument>
         </arguments>
@@ -53,6 +53,9 @@
             <string>if (place_meeting(x, y, obj_enemy)) {
     
     instance_destroy();
+    if(aftermath != "") {
+        instance_create(x,y,aftermath);
+    }
 }
 
 </string>

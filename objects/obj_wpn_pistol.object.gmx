@@ -29,7 +29,7 @@
 wpn_rof = 15;
 pellets = 1;
 dmg = 1;
-
+aftermath = "";
 </string>
           </argument>
         </arguments>
