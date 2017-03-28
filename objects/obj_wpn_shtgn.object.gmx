@@ -25,12 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 8;
+            <string>event_inherited();
+
+speed = 8;
 wpn_rof = 40;
 pellets = 20;
 dmg = 0.3;
 pelletdirection = random_range(-0.75, 0.75);
 aftermath = "";
+knockback = 0;
 </string>
           </argument>
         </arguments>

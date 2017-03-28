@@ -28,6 +28,7 @@
             <string>/// Give guns some default attributes
 
 aftermath = "";
+rotates = true;
 </string>
           </argument>
         </arguments>

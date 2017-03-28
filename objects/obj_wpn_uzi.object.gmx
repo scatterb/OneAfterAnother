@@ -25,11 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 10;
+            <string>event_inherited();
+
+speed = 10;
 wpn_rof = 5;
 pellets = 1;
 dmg = 1;
 aftermath = "";
+knockback = 0;
 </string>
           </argument>
         </arguments>
@@ -54,19 +57,15 @@ aftermath = "";
             <kind>1</kind>
             <string>if(direction == 0) {
     phy_position_y -= speed;
-    sprite_index = spr_bullet_up;
 }
 if(direction == 90) {
     phy_position_x += speed;
-    sprite_index = spr_bullet_right;
 }
 if(direction == 180) {
     phy_position_y += speed;
-    sprite_index = spr_bullet_down;
 }
 if(direction == 270) {
     phy_position_x -= speed;
-    sprite_index = spr_bullet_left;
 }
 </string>
           </argument>

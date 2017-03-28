@@ -38,6 +38,9 @@
         <sprite>sprites\firerod_up</sprite>
         <sprite>sprites\firerod_smoke</sprite>
       </sprites>
+      <sprites name="Bow sprites">
+        <sprite>sprites\spr_bow_arrow</sprite>
+      </sprites>
     </sprites>
     <sprites name="Enemy Sprites">
       <sprite>sprites\spr_enemy</sprite>
@@ -47,11 +50,14 @@
       <sprite>sprites\spr_eqp_pistol</sprite>
       <sprite>sprites\spr_eqp_uzi</sprite>
       <sprite>sprites\spr_eqp_shtgn</sprite>
+      <sprite>sprites\spr_choose_firerod</sprite>
     </sprites>
-    <sprite>sprites\spr_choose_firerod</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader0.shader</shader>
+  </shaders>
   <objects name="objects">
     <objects name="Weapon objects">
       <object>objects\obj_wpn_pistol</object>
@@ -60,6 +66,8 @@
       <object>objects\obj_wpn_master</object>
       <object>objects\obj_wpn_firerod</object>
       <object>objects\obj_smoke</object>
+      <object>objects\obj_wpn_bow_knock</object>
+      <object>objects\obj_wpn_boumerang</object>
     </objects>
     <objects name="Player Objects">
       <object>objects\obj_player</object>
@@ -82,6 +90,7 @@
       <object>objects\btn_firerod</object>
       <object>objects\btn_uzi</object>
       <object>objects\btn_shotgun</object>
+      <object>objects\btn_bow</object>
     </objects>
   </objects>
   <rooms name="rooms">

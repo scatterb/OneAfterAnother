@@ -27,12 +27,16 @@
             <kind>1</kind>
             <string>/// Creation and settiong attributes
 
+event_inherited();
+
 speed = 6;
 wpn_rof = 2;
 pellet = 1;
 dmg = 0.8;
 lifetime = 15;
 aftermath = obj_smoke;
+knockback = 0;
+rotates = false;
 </string>
           </argument>
         </arguments>
